@@ -12,6 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import AddAdmin from "./Pages/User/AddAdmin";
 import AddSociety from "./Pages/SocietyManagement/AddSociety";
 import AddUser from "./Pages/User/AddUser";
+import AddBlock from "./Pages/SocietyManagement/AddBlock";
+import AddUnit from "./Pages/SocietyManagement/AddUnit";
 // import Navbar from './components/Navbar';
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
             <Route path="/add-admin" element={<AddAdmin />} />
             <Route path="/add-user" element={<AddUser />} />
             <Route path="/register-society" element={<AddSociety />} />
+            <Route path="/add-blocks" element={<AddBlock />} />
+            <Route path="/add-units" element={<AddUnit />} />
             {/* <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} /> */}
             <Route path="/" element={<Navigate to="/login" replace />} />

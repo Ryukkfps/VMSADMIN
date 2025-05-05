@@ -74,6 +74,10 @@ const SuperAdminDashboard = () => {
     navigate("/add-admin");
   };
 
+  const handleNavigation = (params) =>{
+    navigate(params);
+  }
+
   return (
     <div className="p-6">
       <div className="mb-8">

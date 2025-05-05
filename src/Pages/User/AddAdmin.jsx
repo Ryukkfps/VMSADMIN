@@ -154,7 +154,7 @@ const AddAdmin = () => {
   return (
     <div className="flex">
       <Sidebar userRole={userRole} />
-      <div className="flex-1 p-6 overflow-hidden">
+      <div className="flex-1 ml-64 p-6 overflow-auto">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-2xl font-bold mb-6">
             {editingAdmin ? 'Edit Admin' : 'Add New Admin'}

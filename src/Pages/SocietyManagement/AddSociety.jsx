@@ -12,18 +12,34 @@ const AddSociety = () => {
     SocietyName: '',
     Address: '',
     NumberofBlocks: '',
-    NumberofUnits: ''
+    NumberofUnits: '',
+    AdminId: ''
   });
   const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(false);
   const [societies, setSocieties] = useState([]);
+  const [admins, setAdmins] = useState([]);
   
   const userRole = sessionStorage.getItem('userRole');
 
   useEffect(() => {
     fetchCities();
     fetchSocieties();
+    fetchAdmins();
   }, []);
+
+  const fetchAdmins = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/users/admins`, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem('token')}`
+        }
+      });
+      setAdmins(response.data);
+    } catch (error) {
+      toast.error('Error fetching admins');
+    }
+  };
 
   const fetchCities = async () => {
     try {
@@ -70,6 +86,13 @@ const AddSociety = () => {
     });
   };
 
+  const handleAdminChange = (selectedOption) => {
+    setFormData({
+      ...formData,
+      AdminId: selectedOption.value
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -87,7 +110,8 @@ const AddSociety = () => {
         SocietyName: '',
         Address: '',
         NumberofBlocks: '',
-        NumberofUnits: ''
+        NumberofUnits: '',
+        AdminId: ''
       });
       fetchSocieties();
     } catch (error) {
@@ -100,6 +124,11 @@ const AddSociety = () => {
   const cityOptions = cities.map(city => ({
     value: city.City,
     label: city.City
+  }));
+
+  const adminOptions = admins.map(admin => ({
+    value: admin._id,
+    label: admin.Name
   }));
 
   return (
@@ -185,6 +214,20 @@ const AddSociety = () => {
                   min="1"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Enter number of units"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Assign Admin
+                </label>
+                <Select
+                  options={adminOptions}
+                  onChange={handleAdminChange}
+                  placeholder="Search and select admin"
+                  className="basic-single"
+                  classNamePrefix="select"
+                  isSearchable={true}
                 />
               </div>
 
