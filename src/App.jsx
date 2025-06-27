@@ -14,6 +14,7 @@ import AddSociety from "./Pages/SocietyManagement/AddSociety";
 import AddUser from "./Pages/User/AddUser";
 import AddBlock from "./Pages/SocietyManagement/AddBlock";
 import AddUnit from "./Pages/SocietyManagement/AddUnit";
+import UnitApproval from "./Pages/UnitApproval/UnitApproval";
 // import Navbar from './components/Navbar';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/register-society" element={<AddSociety />} />
             <Route path="/add-blocks" element={<AddBlock />} />
             <Route path="/add-units" element={<AddUnit />} />
+            <Route path="/unit-approval" element={<UnitApproval />} />
             {/* <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} /> */}
             <Route path="/" element={<Navigate to="/login" replace />} />

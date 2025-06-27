@@ -43,6 +43,10 @@ const Sidebar = ({userRole}) => {
           <li className="mb-4">
             <Link to="/add-units" className="hover:text-blue-400">Add Units</Link>
           </li>
+          <li className="mb-4">
+            <Link to="/unit-approval" className="hover:text-blue-400">Unit Approval</Link>
+          </li>
+          
         </>
       );
     }
