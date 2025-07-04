@@ -15,6 +15,7 @@ import AddUser from "./Pages/User/AddUser";
 import AddBlock from "./Pages/SocietyManagement/AddBlock";
 import AddUnit from "./Pages/SocietyManagement/AddUnit";
 import UnitApproval from "./Pages/UnitApproval/UnitApproval";
+import Feedback from "./Pages/Feedback/Feedback";
 // import Navbar from './components/Navbar';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             {/* <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} /> */}
             <Route path="/" element={<Navigate to="/login" replace />} />
+            <Route path="/feedback" element={<Feedback />} />
           </Routes>
         </div>
       </Router>

@@ -26,6 +26,9 @@ const Sidebar = ({userRole}) => {
           <li className="mb-4">
             <Link to="/admin-analytics" className="hover:text-blue-400">Admin Analytics</Link>
           </li>
+          <li className="mb-4">
+            <Link to="/feedback" className="hover:text-blue-400">Feedback</Link>
+          </li>
         </>
       );
     } else {
